@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 5000;
 dotenv.config();
 
 app.use(express.json()); // Parse JSON payloads request coming from (req.body)
+//middleware used to communicate with database using endpoint
 app.use('/api/auth', authRoutes);
 
 // app.get('/', (req, res) => {
