@@ -2,6 +2,7 @@ import Conversation from '../models/conversation.model.js';
 import Message from '../models/message.model.js';
 
 export const sendMessage = async (req, res) => {
+  console.log('Sending message...');
   try {
     //get message from user as input
     const { message } = req.body;
@@ -49,6 +50,7 @@ export const sendMessage = async (req, res) => {
 };
 
 export const getMessages = async (req, res) => {
+  console.log('Getting message...');
   try {
     // User 2 we are chatting with
     const { id: userToChatId } = req.params;
@@ -59,7 +61,13 @@ export const getMessages = async (req, res) => {
       participants: { $all: [senderId, userToChatId] },
     }).populate('messages');
 
-    res.status(200).json(conversation.messages);
+    if (!conversation) {
+      return res.status(200).json([]);
+    }
+
+    const messages = conversation.messages;
+
+    res.status(200).json(messages);
   } catch (error) {
     console.log('Error in get messages controller', error.message);
     res.status(501).json({ error: 'Internal server error.' });

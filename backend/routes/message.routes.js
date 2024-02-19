@@ -7,7 +7,7 @@ const router = express.Router();
 //1. post req @ /send/id
 //2. protectRoute func. triggered - If successful next() funct triggered
 //3. last sendMessage funct triggered if all successful
-router.get('/send/:id', protectRoute, getMessages);
 router.post('/send/:id', protectRoute, sendMessage);
+router.get('/:id', protectRoute, getMessages);
 
 export default router;
