@@ -14,6 +14,7 @@ const protectRoute = async (req, res, next) => {
 
     //if token exist we verify it
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
     if (!decoded) {
       return res
         .status(401)
@@ -25,10 +26,10 @@ const protectRoute = async (req, res, next) => {
 
     if (!user) {
       return res.status(404).json({ error: 'User not found.' });
+    } else if (user) {
+      //user in our database
+      req.user = user;
     }
-
-    //user in our database
-    req.user = user;
 
     next();
   } catch (error) {
