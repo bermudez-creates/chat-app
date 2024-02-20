@@ -8,6 +8,6 @@ const connectToMongoDB = async () => {
     console.log('Error connecting to Mongo DB', err.message);
   }
 };
-//file used to communicate with database
+//file used to communicate with database - We can add data to MongoDB in the cloud
 
 export default connectToMongoDB;

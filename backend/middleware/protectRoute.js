@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/user.model.js';
 
+// This file is used to verify a user before they're allowed to send a message to another user
 const protectRoute = async (req, res, next) => {
   try {
     //how we get cookie/token
