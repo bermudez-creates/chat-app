@@ -47,7 +47,9 @@ const Login = () => {
           </a>
 
           <div>
-            <button className="btn btn-block btm-sm mt-2">Login</button>
+            <button className="btn btn-block btm-sm mt-2 border border-slate-700">
+              Login
+            </button>
           </div>
         </form>
       </div>
