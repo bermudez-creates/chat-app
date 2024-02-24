@@ -2,6 +2,7 @@ import React from 'react';
 
 const Message = () => {
   return (
+    // User signed in chat
     <div className="chat chat-end">
       <div className="chat-image avatar">
         <div className="w-10 rounded-full">

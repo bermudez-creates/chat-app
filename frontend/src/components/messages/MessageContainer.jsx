@@ -1,22 +1,44 @@
 import React from 'react';
+import MessageInput from './MessageInput';
 import Messages from './Messages';
+import { BiSolidMessageSquareAdd } from 'react-icons/bi';
 
 const MessageContainer = () => {
+  const noChatSelected = true;
   return (
     <div className="md:min-w-[450px] flex flex-col">
-      <>
-        {/* HEADER */}
-        <div className="bg-slate-500 px-4 py-4 mb-2">
-          <span className="label-text">Message to: </span>
-          <span className="text-indigo-800 font-bold">
-            <i>Steezy </i>User
-          </span>
-        </div>
+      {noChatSelected ? (
+        <NoChatSelected />
+      ) : (
+        <>
+          {/* HEADER */}
+          <div className="bg-slate-500 px-4 py-4 mb-2">
+            <span className="label-text">Message to: </span>
+            <span className="text-indigo-800 font-bold">
+              <i>Steezy </i>User
+            </span>
+          </div>
 
-        <Messages />
-      </>
+          <Messages />
+          <MessageInput />
+        </>
+      )}
     </div>
   );
 };
 
 export default MessageContainer;
+
+const NoChatSelected = () => {
+  return (
+    <div className="flex items-center justify-center w-full h-full">
+      <div className="px-4 text-center sm:text-lg md:text-xl text-indigo-600 font-semibold flex flex-col items-center gap-2">
+        <p>
+          Welcome <i>Steezy</i> User 👋🏻 !
+        </p>
+        <p>Select a chat to start or continue a conversation.</p>
+        <BiSolidMessageSquareAdd className="text-3xl  md:text-6xl text-center text-green-800" />
+      </div>
+    </div>
+  );
+};
