@@ -1,6 +1,7 @@
 import React from 'react';
 
-const GenderCheckbox = () => {
+const GenderCheckbox = (onCheckboxChange, selectedGender) => {
+  console.log(onCheckboxChange, selectedGender);
   return (
     <div className="flex">
       {/* Male CheckBox  */}
