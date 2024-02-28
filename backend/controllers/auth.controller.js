@@ -81,7 +81,6 @@ export const login = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(generateTokenAndSaveCookie);
     console.log(`Error in login controller`, error.message);
     res.status(502).json({ error: 'Internal server error' });
   }

@@ -116,8 +116,15 @@ const SignUp = () => {
           </Link>
 
           <div>
-            <button className="btn btn-block btm-sm mt-2 border border-slate-700">
-              Sign Up
+            <button
+              className="btn btn-block btm-sm mt-2 border border-slate-700"
+              disabled={loading}
+            >
+              {loading ? (
+                <soan className="loading loading-spinner"></soan>
+              ) : (
+                'Sign Up'
+              )}
             </button>
           </div>
           {/* End of sign up form */}
