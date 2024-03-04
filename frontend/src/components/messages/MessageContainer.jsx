@@ -2,12 +2,20 @@ import React from 'react';
 import MessageInput from './MessageInput';
 import Messages from './Messages';
 import { BiSolidMessageSquareAdd } from 'react-icons/bi';
+import useConversation from '../../zustand/useConversation';
+import { useEffect } from 'react';
 
 const MessageContainer = () => {
-  const noChatSelected = true;
+  const { selectedConversation, setSelectedConversation } = useConversation();
+
+  useEffect(() => {
+    //clears conversations on logout/clear
+    return () => setSelectedConversation(null);
+  }, [setSelectedConversation]);
+
   return (
     <div className="md:min-w-[450px] flex flex-col">
-      {noChatSelected ? (
+      {!selectedConversation ? (
         <NoChatSelected />
       ) : (
         <>
@@ -15,7 +23,7 @@ const MessageContainer = () => {
           <div className="bg-slate-500 px-4 py-4 mb-2">
             <span className="label-text">Message to: </span>
             <span className="text-indigo-800 font-bold">
-              <i>Steezy </i>User
+              <i>{selectedConversation.fullName} </i>
             </span>
           </div>
 
