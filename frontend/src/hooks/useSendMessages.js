@@ -34,8 +34,6 @@ const useSendMessages = () => {
     }
   };
 
-  // sendMessage();
-
   return { loading, sendMessage };
 };
 

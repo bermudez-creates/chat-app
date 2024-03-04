@@ -9,7 +9,7 @@ const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useConversation();
 
   useEffect(() => {
-    //clears conversations on logout/clear
+    //clears conversations
     return () => setSelectedConversation(null);
   }, [setSelectedConversation]);
 
@@ -21,9 +21,9 @@ const MessageContainer = () => {
         <>
           {/* HEADER */}
           <div className="bg-slate-500 px-4 py-4 mb-2">
-            <span className="label-text">Message to: </span>
+            <span className="label-text">TO: </span>
             <span className="text-indigo-800 font-bold">
-              <i>{selectedConversation.fullName} </i>
+              <i> {selectedConversation.fullName} </i>
             </span>
           </div>
 
