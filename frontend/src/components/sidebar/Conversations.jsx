@@ -19,7 +19,7 @@ const Conversations = () => {
         />
       ))}
 
-      {loading ? <soan className="loading loading-spinner"></soan> : null}
+      {loading ? <span className="loading loading-spinner"></span> : null}
     </div>
   );
 };
