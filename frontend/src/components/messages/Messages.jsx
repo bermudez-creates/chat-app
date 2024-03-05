@@ -5,13 +5,15 @@ import Message from './Message';
 
 const Messages = () => {
   const { loading, messages } = useGetMessages();
-  console.log(`Messages ---`, messages);
+
   return (
     <div className="flex-1 px-4 overflow-auto">
       {/* messages exist */}
       {!loading &&
         messages.length > 0 &&
-        messages.map((message) => <Message key={idx} message={message} />)}
+        messages.map((message, index) => (
+          <Message key={index} message={message} />
+        ))}
       {/* loading state */}
       {loading && [...Array(5)].map((_, idx) => <MessageSkeleton key={idx} />)}
       {/* no messages */}
