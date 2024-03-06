@@ -25,10 +25,10 @@ const Message = ({ message }) => {
       <div className="chat-header text-indigo-900">
         <i>SteezyUser</i>{' '}
       </div>
-      <div className={`chat-bubble text-purple-100 ${bubbleChatColor}`}>
+      <div className={`chat-bubble text-purple-100 ${bubbleChatColor} pb-2`}>
         {message.message}
       </div>
-      <div className="chat-footer opacity-50 text-purple-900">
+      <div className="chat-footer opacity-50 text-green-900">
         {formattedDate}
       </div>
     </div>
