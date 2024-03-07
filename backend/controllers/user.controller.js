@@ -1,7 +1,6 @@
 import User from '../models/user.model.js';
 
 export const getUsersForSidebar = async (req, res) => {
-  console.log('Getting users for sidebar...');
   try {
     const loggedInUserId = req.user._id;
     // Find every user in DB but the one (not equal / $ne) to the loggedn in user id

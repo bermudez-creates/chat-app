@@ -69,7 +69,7 @@ const Login = () => {
               disabled={loading}
             >
               {loading ? (
-                <soan className="loading loading-spinner"></soan>
+                <span className="loading loading-spinner"></span>
               ) : (
                 'Login'
               )}
