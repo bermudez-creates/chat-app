@@ -22,10 +22,13 @@ io.on('connection', (socket) => {
     userSocketMap[userId] = socket.id;
   }
 
+  //Used to get online users in Client
   socket.emit('getOnlineUsers', Object.keys(userSocketMap));
 
   socket.on('disconnect', () => {
     console.log(`User disconnected: ${socket.id}`);
+    delete userSocketMap[userId];
+    socket.emit('getOnlineUsers', Object.keys(userSocketMap));
   });
 });
 

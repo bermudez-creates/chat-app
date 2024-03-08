@@ -2,7 +2,7 @@ import { useEffect, useState, useContext, createContext } from 'react';
 import { useAuthContext } from './AuthContext';
 import io from 'socket.io-client';
 
-export const SocketContext = createContext();
+const SocketContext = createContext();
 
 export const useSocketContext = () => {
   return useContext(SocketContext);
@@ -24,6 +24,10 @@ export const SocketContextProvider = ({ children }) => {
 
       setSocket(socket);
 
+      socket.on('getOnlineUsers', (users) => {
+        setOnlineUsers(users);
+      });
+
       return () => socket.close();
     } else {
       if (socket) {
@@ -31,7 +35,7 @@ export const SocketContextProvider = ({ children }) => {
         setSocket(null);
       }
     }
-  }, []);
+  }, [authUser]);
 
   return (
     <SocketContext.Provider value={{ socket, onlineUsers }}>
